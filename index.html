@@ -2,17 +2,31 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Formular mit Zeichenbeschränkung</title>
+    <title>Zentriertes Formular</title>
+    <style>
+        /* Container-Stil */
+        .zentrierter-container {
+            display: flex;
+            justify-content: center; /* Zentriert horizontal */
+            align-items: center; /* Zentriert vertikal */
+            height: 100vh; /* Vollständige Höhe des Viewports */
+        }
+        /* Formular-Stil */
+        form {
+            display: flex;
+            flex-direction: column; /* Elemente vertikal anordnen */
+            align-items: center; /* Elemente im Formular zentrieren */
+        }
+        input, button {
+            margin: 5px; /* Etwas Abstand zwischen den Elementen */
+        }
+    </style>
     <script type="text/javascript">
         function umleiten() {
             var eingabe = document.getElementById('eingabe').value;
-            // Prüft, ob die Eingabe den Anforderungen entspricht
             if(eingabe.match(/^[a-z0-9]{6}$/)) {
-                // Basis-URL für die Umleitung, angepasst an Ihren Bedarf
-                var basisUrl = "https://costin89.github.io/lazyHolo/";
-                // Konstruiert die Ziel-URL basierend auf der Eingabe
+                var basisUrl = "http://example.com/";
                 var zielUrl = basisUrl + eingabe + ".html";
-                // Umleitung zur Ziel-URL
                 window.location.href = zielUrl;
             } else {
                 alert("Bitte geben Sie genau 6 Zeichen ein (nur Kleinbuchstaben und Zahlen).");
@@ -22,11 +36,11 @@
     </script>
 </head>
 <body>
-<center>
-<form onsubmit="return umleiten();">
-    <input type="text" id="eingabe" maxlength="6" pattern="[a-z0-9]{6}" title="Bitte geben Sie genau 6 Zeichen ein (nur Kleinbuchstaben und Zahlen)." required>
-    <button type="submit">Los</button>
-</form>
-</center>
+<div class="zentrierter-container">
+    <form onsubmit="return umleiten();">
+        <input type="text" id="eingabe" maxlength="6" pattern="[a-z0-9]{6}" title="Bitte geben Sie genau 6 Zeichen ein (nur Kleinbuchstaben und Zahlen)." required>
+        <button type="submit">Los</button>
+    </form>
+</div>
 </body>
 </html>
