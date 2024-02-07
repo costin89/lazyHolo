@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Formular mit Zeichenbeschränkung</title>
+    <script type="text/javascript">
+        function umleiten() {
+            var eingabe = document.getElementById('eingabe').value;
+            // Prüft, ob die Eingabe den Anforderungen entspricht
+            if(eingabe.match(/^[a-z0-9]{6}$/)) {
+                // Basis-URL für die Umleitung, angepasst an Ihren Bedarf
+                var basisUrl = "http://example.com/";
+                // Konstruiert die Ziel-URL basierend auf der Eingabe
+                var zielUrl = basisUrl + eingabe + ".html";
+                // Umleitung zur Ziel-URL
+                window.location.href = zielUrl;
+            } else {
+                alert("Bitte geben Sie genau 6 Zeichen ein (nur Kleinbuchstaben und Zahlen).");
+            }
+            return false; // Verhindert die Standard-Formularübermittlung
+        }
+    </script>
+</head>
+<body>
+<center>
+<form onsubmit="return umleiten();">
+    <input type="text" id="eingabe" maxlength="6" pattern="[a-z0-9]{6}" title="Bitte geben Sie genau 6 Zeichen ein (nur Kleinbuchstaben und Zahlen)." required>
+    <button type="submit">Los</button>
+</form>
+</center>
+</body>
+</html>
